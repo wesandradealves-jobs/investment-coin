@@ -15,3 +15,12 @@ http://rothierdesign.com/files/investmentcoin/approved_psds/03_contact-us_001a.p
 Fonts
 
 http://rothierdesign.com/files/investmentcoin/approved_psds/fonts.zip
+
+Board
+
+https://github.com/wesandradealves-jobs/investment-coin/projects/1
+
+CoDev SSH Key
+
+https://drive.google.com/file/d/1BDUMKfNhzxGfcwYgZKNXTCaCdeJlLPf3/view?usp=sharing
+Passwd: 03122530
