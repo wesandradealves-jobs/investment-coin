@@ -24,3 +24,7 @@ CoDev SSH Key
 
 https://drive.google.com/file/d/1BDUMKfNhzxGfcwYgZKNXTCaCdeJlLPf3/view?usp=sharing
 Passwd: 03122530
+
+URL da integração contínua
+
+https://investment-coin.netlify.com 
