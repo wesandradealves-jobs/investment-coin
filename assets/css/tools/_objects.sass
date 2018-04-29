@@ -43,6 +43,9 @@ input
     background-size: auto
     min-height: 100vh
     overflow: hidden
+    +mq(1250px, max)
+        min-height: auto 
+        overflow: initial
 
 .btn
     box-shadow: inset -6px -9px 0px -6px rgba(0,0,0,.3)
@@ -92,6 +95,8 @@ input
 .pin 
     color: $grapepurple 
     display: block 
+    +mq(1250px, max)
+        display: none
     font-family: 'Gotham HTF'
     +rem('font-size', 10px)
     position: absolute
@@ -122,3 +127,13 @@ input
     p 
         position: relative
         z-index: 2
+
+.logo 
+    img,svg
+        height: auto
+        max-height: 20px
+        max-width: 100%
+
+.tcon 
+    +mq(950px, max)
+        transform: scale(.7)

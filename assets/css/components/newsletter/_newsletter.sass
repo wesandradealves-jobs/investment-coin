@@ -1,6 +1,8 @@
 .newsletter
     flex: 1
     flex-grow: 1.4
+    +mq(1248px, max)
+        display: none
     form 
         input,
         button 
@@ -15,6 +17,8 @@
                     margin-left: -10px
                 +mq(1280px, max)
                     margin-left: -27px
+                +mq(1248px, max)
+                    margin-left: 0
         input[type="text"]
             background-color: $grayblue
             color: $lightpurple

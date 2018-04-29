@@ -16,22 +16,43 @@
             right: 10px
     section
         margin-bottom: 50vh
+        +mq(1250px, max)
+            &:last-child
+                margin-bottom: 60px
+            &:not(:last-child)
+                margin-bottom: calc(132px + 18px)
+        &.banner
+            align-items: center 
+            @extend .flex
+            flex-flow: column wrap
+            justify-content: center 
+            min-height: 100vh        
+            +mq(1250px, max)
+                min-height: auto    
         &:not(.banner)
             align-items: center 
             @extend .flex
             flex-flow: column wrap
             justify-content: center 
             min-height: 100vh
+            +mq(1250px, max)
+                min-height: auto
             &:nth-child(odd)
                 .grid
                     flex-flow: row-reverse wrap
+                    +mq(1250px, max)
+                        flex-flow: column wrap 
                     >div
                         &:not(:only-child)
                             &:first-child
                                 padding-left: 70px
+                                +mq(1250px, max)
+                                    padding-left: 0
                                 padding-right: 0
                             &:last-child
                                 padding-right: 70px
+                                +mq(1250px, max)
+                                    padding-right: 0
                                 padding-left: 0
         &.overview
             .pin
@@ -87,7 +108,9 @@
                 top: -40vh
             .container
                 .grid
-                    flex-flow: row wrap
+                    +mq(1250px, max)
+                        flex-flow: column wrap
+                        text-align: center
         &.our-history
             .blockquote
                 p
@@ -98,7 +121,15 @@
                 text-align: justify
             .pin
                 right: 25px
-                bottom: -90px      
+                bottom: -90px   
+            .grid
+                >div
+                    +mq(1250px, max)
+                        &:first-child
+                            order: 1
+                            margin-bottom: 30px
+                        &:last-child
+                            order: 2   
             .grid-title
                 &::before
                     content: url(assets/imgs/square-4.png)
@@ -123,6 +154,8 @@
                     @extend .flex
                     flex-flow: row wrap 
                     justify-content: space-between
+                    +mq(1250px, max)
+                        text-align: justify
                     span
                         flex: 0 0 auto
                         width: 20px 
@@ -137,13 +170,25 @@
                         padding-left: 20px
             .payouts-txt
                 align-items: stretch
+                +mq(1250px, max)
+                    align-items: center
                 @extend .flex
                 flex-flow: row wrap 
+                +mq(410px, max)
+                    flex-flow: column wrap 
                 justify-content: space-between
                 >span 
                     flex: 1
                     &:first-child
                         flex: 0 0 auto 
                         width: 96px
+                        +mq(410px, max)
+                            margin-bottom: 30px
+                            width: 100%
                     &:last-child
                         padding-left: 40px
+                        +mq(1250px, max)
+                            text-align: justify
+                        +mq(410px, max)
+                            padding-left: 0
+                    

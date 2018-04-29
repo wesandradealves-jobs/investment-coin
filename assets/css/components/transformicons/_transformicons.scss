@@ -41,7 +41,7 @@ $tcon-menu-arrow360left-transformation: (
 
 @mixin tcon-menu-lines {
   display: inline-block;
-  height: ($tcon-size / 7);
+  height: ($tcon-size / 14);
   width: $tcon-size;
   border-radius: $tcon-menu-radius;
   transition: $tcon-transition;

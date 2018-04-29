@@ -8,15 +8,29 @@
     justify-content: space-around
     opacity: 0
     padding: 0 40px
+    +mq(1248px, max)
+        padding-left: 0
+    +mq(950px, max)
+        padding-right: 0
+    +mq(710px, max)
+        margin-top: -10px
     &.-animated
         animation: opacity 2.5s forwards linear    
     >li 
         +rem('font-size', 9px)
         text-align: center
+        +mq(710px, max)
+            flex: 0 0 auto 
+            margin-top: 10px
+            width: 25%
+            +mq(410px, max)
+                +rem('font-size', 8px)
         &:not(:last-child)
             &::after
                 content: "/"
                 color: black
+                +mq(710px, max)
+                    display: none
                 display: inline-block 
                 padding-left: 15px
                 +rem('font-size', 11px)

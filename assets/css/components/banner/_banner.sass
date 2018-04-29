@@ -1,5 +1,8 @@
 .banner
     margin-bottom: 390px
+    .container
+        +mq(1250px, max)
+            padding-top: 45px
     .coin
         &
             animation: bottom-text 2.5s forwards linear
@@ -11,6 +14,9 @@
                 height: 185px
             +mq(1366px, max)
                 height: 125px
+            +mq(450px, max)
+                height: auto 
+                width: 100%
         &-text
             color: white 
             font-family: 'Museo Sans 500'

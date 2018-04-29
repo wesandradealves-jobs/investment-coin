@@ -1,8 +1,13 @@
 .header-footer
     align-items: center
     bottom: -50px
+    +mq(950px, max)
+        bottom: initial 
+        top: calc(100% + 35px)
     @extend .flex
     flex-flow: row wrap 
+    +mq(950px, max)
+        flex-flow: column wrap
     font-family: 'Gotham HTF';
     justify-content: flex-end
     left: 0
@@ -10,11 +15,20 @@
     +mq(1280px, max)
         padding-left: 235px
     padding-right: 140px
+    +mq(1250px, max)
+        padding: 0 60px
+    +mq(410px, max)
+        padding: 0 30px
     position: absolute 
     width: 100%
     .social-networks
         flex: 1
         flex-grow: 1.4
+        +mq(1250px, max)
+            display: none
         opacity: 0
         &.-animated
             animation: opacity 2.5s forwards linear   
+        >li 
+            +mq(950px, max)
+                padding: 0 10px
