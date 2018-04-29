@@ -1,0 +1,42 @@
+.navigation
+    font-family: 'Museo Sans 500'
+    &.-mobile
+        align-items: center
+        background-color: transparentize($mediumpurple, .4) 
+        display: none 
+        &.-active
+            @extend .flex
+        flex-flow: column wrap 
+        justify-content: center
+        min-height: 100% 
+        left: 0
+        position: fixed 
+        top: 0
+        width: 100%
+        z-index: 100
+        >ul 
+            flex-flow: column wrap
+            >li 
+                +rem('font-size', 14px)
+                +mq-height(414px, max)
+                    +rem('font-size', 12px)
+                margin-bottom: 10px
+                +mq-height(414px, max)
+                    margin-bottom: 6px
+                .social-networks
+                    margin-top: 20px
+                    opacity: 1
+                    >li 
+                        padding: 0 10px
+    >ul
+        align-items: center 
+        @extend .flex
+        flex-flow: row wrap 
+        justify-content: space-between
+        padding: 0 40px
+        >li
+            color: $gray
+            +rem('font-size', 12px)
+            &:hover,
+            &.-active
+                color: white

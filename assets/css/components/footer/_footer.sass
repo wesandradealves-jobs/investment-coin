@@ -1,0 +1,65 @@
+.footer
+    color: darken($gray, 35%)
+    font-family: 'Museo Sans 500'
+    >.container
+        align-items: center
+        @extend .flex
+        flex-flow: column wrap 
+        justify-content: center
+        +mq(1024px, max)
+            padding-bottom: 30px
+        >h6 
+            +rem('font-size', 12px)
+        >.copyright
+            align-items: center
+            color: darken($gray, 35%) 
+            @extend .flex
+            +rem('font-size', 11px)
+            flex-flow: row wrap 
+            +mq(490px, max)
+                flex-flow: column wrap
+                text-align: center
+            justify-content: space-between
+            max-width: 495px
+            margin: 0 auto
+            width: 100%
+            >p 
+                color: inherit
+            >nav 
+                >ul 
+                    >li 
+                        &:hover
+                            color: gray 
+                        display: inline-block 
+                        vertical-align: middle 
+                        &:not(:last-child)
+                            &::after
+                                content: "|"
+                                display: inline-block 
+                                vertical-align: middle 
+                                padding: 0 10px
+        >.social-networks
+            justify-content: center
+            margin: 15px auto 40px
+            > li 
+                color: darken($bluepen, 25%)
+                padding: 0 10px        
+                &:hover
+                    color: $purple
+        >.navigation
+            >ul 
+                justify-content: center
+                margin: 40px 0
+                +mq(1024px, max)
+                    margin-bottom: 30px
+                > li  
+                    color: darken($gray, 35%)
+                    padding: 0 25px
+                    &:hover,&.-active
+                        color: white
+                    +mq(1440px, max)
+                        padding: 0 25px
+                    +mq(1250px, max)
+                        padding: 0 10px
+                    +mq(1024px, max)
+                        padding: 0 10px 10px

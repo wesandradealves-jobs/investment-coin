@@ -1,0 +1,33 @@
+.newsletter
+    flex: 1
+    flex-grow: 1.4
+    +mq(1248px, max)
+        display: none
+    form 
+        input,
+        button 
+            display: inline-block 
+            height: 25px 
+            line-height: 25px
+            vertical-align: middle
+            &[type="submit"], &:not([type="text"])
+                color: black
+                +rem(('font-size' : 11px, 'line-height' : 8px))
+                +mq(1440px, max)
+                    margin-left: -10px
+                +mq(1280px, max)
+                    margin-left: -27px
+                +mq(1248px, max)
+                    margin-left: 0
+        input[type="text"]
+            background-color: $grayblue
+            color: $lightpurple
+            font-family: 'Museo Sans 500'
+            +rem('font-size', 11px)
+            max-width: 140px
+            padding-left: 10px
+            width: 100%
+        >*
+            display: inline-block 
+            vertical-align: middle
+        

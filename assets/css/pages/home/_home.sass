@@ -1,0 +1,194 @@
+.pg-home
+    .pin
+        &.-welcome,
+        &.-future
+            top: 25%
+            transform: rotate(-90deg)
+            transform-origin: center center
+        &.-welcome
+            left: 50px 
+            &.-bottom 
+                bottom: -25vh
+                left: initial
+                top: initial 
+                right: 0
+        &.-future
+            right: 10px
+    section
+        margin-bottom: 50vh
+        +mq(1250px, max)
+            &:last-child
+                margin-bottom: 60px
+            &:not(:last-child)
+                margin-bottom: calc(132px + 18px)
+        &.banner
+            align-items: center 
+            @extend .flex
+            flex-flow: column wrap
+            justify-content: center 
+            min-height: 100vh        
+            +mq(1250px, max)
+                min-height: auto    
+        &:not(.banner)
+            align-items: center 
+            @extend .flex
+            flex-flow: column wrap
+            justify-content: center 
+            min-height: 100vh
+            +mq(1250px, max)
+                min-height: auto
+            &:nth-child(odd)
+                .grid
+                    flex-flow: row-reverse wrap
+                    +mq(1250px, max)
+                        flex-flow: column wrap 
+                    >div
+                        &:not(:only-child)
+                            &:first-child
+                                padding-left: 70px
+                                +mq(1250px, max)
+                                    padding-left: 0
+                                padding-right: 0
+                            &:last-child
+                                padding-right: 70px
+                                +mq(1250px, max)
+                                    padding-right: 0
+                                padding-left: 0
+        &.overview
+            .pin
+                top: -100px
+            .grid-title
+                &::before
+                    bottom: -35px
+                    content: url(assets/imgs/square-1.png)
+                    display: block
+                    left: -55px
+                    position: absolute 
+                    z-index: 1
+        &.team
+            .pin
+                &.-who-we-are,
+                &.-team
+                    top: -25vh
+                    transform: rotate(-90deg)
+                    transform-origin: center center
+                &.-who-we-are
+                    left: 130px 
+                &.-team
+                    right: 50px
+            .grid-title
+                &::before
+                    bottom: -80px
+                    content: url(assets/imgs/square-2.png)
+                    display: block
+                    left: -90px
+                    position: absolute 
+                    z-index: 1
+        &.conversions
+            .pin
+                left: calc(50% - (100px/2 + 30px))
+                top: -40vh
+            .grid-title
+                &+p~p 
+                    color: $gray
+                    +rem('font-size', 14px)
+                    margin: 50px auto
+                    max-width: 520px
+                    width: 100%
+                &::before
+                    content: url(assets/imgs/square-3.png)
+                    display: block
+                    left: calc(50% - 203px/2)
+                    position: absolute 
+                    top: calc(50% - 203px/2)
+                    z-index: 1            
+        &.token-sale
+            .pin
+                left: 380px
+                top: -40vh
+            .container
+                .grid
+                    +mq(1250px, max)
+                        flex-flow: column wrap
+                        text-align: center
+        &.our-history
+            .blockquote
+                p
+                    color: $gray
+            p
+                +rem('line-height', 25px)
+                font-weight: 300
+                text-align: justify
+            .pin
+                right: 25px
+                bottom: -90px   
+            .grid
+                >div
+                    +mq(1250px, max)
+                        &:first-child
+                            order: 1
+                            margin-bottom: 30px
+                        &:last-child
+                            order: 2   
+            .grid-title
+                &::before
+                    content: url(assets/imgs/square-4.png)
+                    display: block
+                    left: -90px
+                    position: absolute 
+                    top: -60px
+                    z-index: 1     
+        &.benefits
+            .grid
+                align-items: stretch
+                p 
+                    +rem('font-size', 14px)   
+                .grid-title
+                    &+p
+                        min-height: 41px
+                        margin-bottom: 35px     
+                        &~p
+                            color: $gray    
+            .benefits-list
+                >li 
+                    @extend .flex
+                    flex-flow: row wrap 
+                    justify-content: space-between
+                    +mq(1250px, max)
+                        text-align: justify
+                    span
+                        flex: 0 0 auto
+                        width: 20px 
+                        img 
+                            height: auto
+                            width: inherit
+                    &:not(:last-child)
+                        margin-bottom: 25px
+                    p 
+                        color: $gray
+                        flex: 1 
+                        padding-left: 20px
+            .payouts-txt
+                align-items: stretch
+                +mq(1250px, max)
+                    align-items: center
+                @extend .flex
+                flex-flow: row wrap 
+                +mq(410px, max)
+                    flex-flow: column wrap 
+                justify-content: space-between
+                >span 
+                    flex: 1
+                    &:first-child
+                        flex: 0 0 auto 
+                        width: 96px
+                        +mq(410px, max)
+                            margin-bottom: 30px
+                            width: 100%
+                    &:last-child
+                        padding-left: 40px
+                        +mq(1250px, max)
+                            text-align: justify
+                        +mq(410px, max)
+                            padding-left: 0
+                    
