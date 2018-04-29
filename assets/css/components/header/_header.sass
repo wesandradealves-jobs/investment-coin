@@ -1,0 +1,99 @@
+.header
+    background-color: $mediumpurple
+    border-radius: 0 0 999px 999px
+    +mq(1248px, max)
+        border-radius: 0
+    border-top: 2px transparentize($purple, .3) solid
+    margin: 0 auto
+    max-width: 1520px
+    +transition(2s)
+    top: -400px
+    width: 100%
+    +mq(950px, max)
+        z-index: 10
+    &.-sticky
+        background-color: transparentize($mediumpurple, .5)
+        border-radius: 0
+        +mq(1250px, max)
+            display: none
+        max-width: 100%
+        position: fixed 
+        z-index: 100
+        .container
+            .navigation
+                &.-main-navigation
+                    line-height: 60px
+                    >ul
+                        >li 
+                            padding-top: 15px
+                            padding-bottom: 15px                            
+                            &:hover,
+                            &.-active
+                                &::after
+                                    bottom: 0 
+                                    
+        &.-stuck
+            top: 0
+    &.-animated
+        animation: header 2.5s forwards linear
+    >.container
+        align-items: center
+        @extend .flex
+        flex-flow: row wrap 
+        justify-content: space-between
+        padding: 0px 100px
+        +mq(1248px, max)
+            padding: 0 30px
+        &::before
+            border-radius: 0 0 999px 999px
+            background-color: transparentize($purple, .6)
+            content: ""
+            display: block
+            height: 10px
+            max-width: 225px
+            left: calc(50% - 225px/2)
+            position: absolute  
+            top: 0
+            width: 100%
+        >.logo
+            flex: 1
+        .navigation
+            &.-main-navigation
+                flex: 1
+                flex-grow: 5
+                +mq(1248px, max)
+                    flex: 0 0 auto 
+                overflow: hidden
+                +mq(1248px, max)
+                    >ul
+                        padding: 0 0 0 30px
+                >ul 
+                    >li 
+                        color: $lightpurple
+                        padding: 45px 10px
+                        +mq(1440px, max)
+                            padding-left: 0
+                            padding-right: 0
+                        +mq(1248px, max)
+                            padding: 20px 0
+                            &:not(:last-child)
+                                display: none
+                        &::after
+                            bottom: -20px
+                            content: url(assets/imgs/menu-corner.png)
+                            display: block
+                            +mq(1248px, max)
+                                display: none
+                            left: calc(50% - 29px/2)
+                            line-height: 1
+                            position: absolute
+                            +transition(500ms)
+                        &:hover,
+                        &.-active
+                            color: white
+                            &::after
+                                bottom: 0
+                        &:last-child
+                            display: none 
+                            +mq(1248px, max)
+                                display: inline            

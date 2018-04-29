@@ -1,0 +1,59 @@
+.conversor
+    align-items: center 
+    @extend .flex
+    flex-flow: row wrap
+    font-family: 'Museo Sans 500'
+    max-width: 580px
+    margin: 75px auto 57px
+    &::after
+        content: "="
+        color: $purple
+        display: block 
+        +rem('font-size', 16px)
+        text-align: center
+        position: absolute 
+        left: 50%
+        top: 0
+        width: 40px 
+    span
+        flex: 1
+        overflow: hidden
+        padding: 0 40px
+        &:first-child
+        input,label 
+            background-color: transparent
+            color: white 
+            cursor: pointer
+            display: block
+            +rem('font-size', 14px)
+            width: 100%
+            &[disabled]
+                cursor: default
+            &[placeholder]
+                color: inherit
+            &::-moz-placeholder
+                color: inherit
+            &::-webkit-input-placeholder
+                color: inherit
+            &:-ms-input-placeholder 
+                color: inherit
+            &:focus
+                outline: 0px
+        input
+            border-bottom: 1px $purple solid
+            height: 20px
+            line-height: 20px
+            width: calc(100% + 90px)
+        label 
+            &::after
+                content: attr(for)
+                color: $purple
+                display: block
+                height: inherit
+                line-height: inherit
+                padding: inherit
+                position: absolute
+                text-transform: uppercase
+                right: -40px 
+                top: 0
+                z-index: 2

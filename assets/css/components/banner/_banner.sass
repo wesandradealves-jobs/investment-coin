@@ -1,0 +1,74 @@
+.banner
+    margin-bottom: 390px
+    .container
+        +mq(1250px, max)
+            padding-top: 45px
+    .coin
+        &
+            animation: bottom-text 2.5s forwards linear
+            bottom: -30px         
+            display: block 
+            margin: 0 auto
+            opacity: 0
+            +mq(1440px, max)
+                height: 185px
+            +mq(1366px, max)
+                height: 125px
+            +mq(450px, max)
+                height: auto 
+                width: 100%
+        &-text
+            color: white 
+            font-family: 'Museo Sans 500'
+            +rem('font-size', 14px)
+            max-width: 520px
+            margin: 40px auto 30px
+            opacity: 0
+            padding: 0 15px
+            text-align: center 
+            text-transform: uppercase
+            width: 100%
+            &.-animated
+                animation: opacity 2.5s forwards linear   
+    &-title
+        color: $lightblue
+        display: block 
+        font-family: 'Gotham HTF'
+        font-weight: 800
+        +rem('font-size', 80px)
+        +mq(1366px, max)
+            +rem('font-size', 60px)
+        line-height: 1
+        margin: 95px auto 50px
+        text-align: center
+        text-transform: uppercase
+        >span
+            &:first-child,
+            &:last-child 
+                color: white 
+                display: block
+                font-weight: 500
+                +rem('font-size', 30px)
+                +mq(1366px, max)
+                    +rem('font-size', 15px)
+            &:last-child
+                animation: bottom-text 2.5s forwards linear
+                bottom: -30px 
+                +rem('font-size', 45px)
+                +mq(1366px, max)
+                    +rem('font-size', 30px)
+                opacity: 0
+            &:first-child
+                animation: top-text 2.5s forwards linear
+                opacity: 0
+                top: -30px 
+            &:nth-child(2)
+                >b 
+                    &:nth-child(1)
+                        animation: left-text 2.5s forwards linear
+                        left: -30px
+                        opacity: 0
+                    &:nth-child(2)
+                        animation: right-text 2.5s forwards linear                        
+                        opacity: 0
+                        right: -30px
