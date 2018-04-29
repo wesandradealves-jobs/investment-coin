@@ -17,8 +17,20 @@ $(document).ready(function () {
 
             for(var o = 0; o < l; o++) { 
                 if(st >= offsets[o] - ($(".header").outerHeight() + 150)){
+                    // $(".navigation.-main-navigation ul li:nth-child("+o+")")
+                    // .addClass("-active");
+
                     $(".navigation.-main-navigation ul li:nth-child("+o+")")
-                    .addClass("-active");
+                    .addClass("-active")
+                    .prevAll().removeClass("-active");  
+                    
+                    $(".navigation.-main-navigation ul li:nth-child("+o+")")
+                    .not($(".navigation.-main-navigation ul li:nth-child("+o+")"))
+                    .removeClass("-active");
+    
+                    $(".navigation.-main-navigation ul li:nth-child("+o+")")
+                    .nextAll()
+                    .removeClass("-active");                    
 
                     $(".main section")
                     .eq(o)
@@ -36,36 +48,38 @@ $(document).ready(function () {
         for(var x = 1; x < l; x++) {
             $(".navigation.-main-navigation ul li:nth-child("+x+")")
             .find("a")
-            .attr("href", "javascript:void(0)")
             .click(function() {
-                $(".navigation.-main-navigation ul li:nth-child("+($(this).parent().index() + 1)+")")
-                .addClass("-active")
-                .prevAll().addClass("-active"); 
-                
-                $(".navigation.-main-navigation ul li:nth-child("+($(this).parent().index() + 1)+")")
-                .not($(".navigation.-main-navigation ul li:nth-child("+($(this).parent().index() + 1)+")"))
-                .removeClass("-active");
-
-                $(".navigation.-main-navigation ul li:nth-child("+($(this).parent().index() + 1)+")")
-                .nextAll()
-                .removeClass("-active");
-                
-                $(".main section").eq($(this).parent().index() + 1)
-                .find(".grid").addClass("-animated")
-                .prevAll().find(".grid").addClass("-animated"); 
-
-                $(".main section").eq($(this).parent().index() + 1)
-                .not($(".main section").eq($(this).parent().index() + 1))
-                .find(".grid").addClass("-animated")
-                .removeClass("-animated");
-
-                $(".main section").eq($(this).parent().index() + 1)
-                .nextAll().find(".grid")
-                .removeClass("-animated");
-
                 var scroll = offsets[($(this).parent().index() + 1)];
+                
+                if($(this).attr("href") == "javascript:void(0)"){
+                    $(".navigation.-main-navigation ul li:nth-child("+($(this).parent().index() + 1)+")")
+                    .addClass("-active")
+                    .prevAll().removeClass("-active");  
+                    
+                    $(".navigation.-main-navigation ul li:nth-child("+($(this).parent().index() + 1)+")")
+                    .not($(".navigation.-main-navigation ul li:nth-child("+($(this).parent().index() + 1)+")"))
+                    .removeClass("-active");
+    
+                    $(".navigation.-main-navigation ul li:nth-child("+($(this).parent().index() + 1)+")")
+                    .nextAll()
+                    .removeClass("-active");
+                    
+                    $(".main section").eq($(this).parent().index() + 1)
+                    .find(".grid").addClass("-animated")
+                    .prevAll().find(".grid").addClass("-animated"); 
+    
+                    $(".main section").eq($(this).parent().index() + 1)
+                    .not($(".main section").eq($(this).parent().index() + 1))
+                    .find(".grid").addClass("-animated")
+                    .removeClass("-animated");
+    
+                    $(".main section").eq($(this).parent().index() + 1)
+                    .nextAll().find(".grid")
+                    .removeClass("-animated");
+    
+                    $("html, body").animate({scrollTop: scroll - $(".header").outerHeight()}, 500); 
+                }
 
-                $("html, body").animate({scrollTop: scroll - $(".header").outerHeight()}, 500); 
             });          
         }
 

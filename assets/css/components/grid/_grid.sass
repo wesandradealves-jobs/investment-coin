@@ -15,11 +15,13 @@
                     @extend .destaque
                     margin-bottom: 40px
         &:not(:only-child)
-            flex: 0 0 50%
+            flex: 0 0 auto 
+            width: 50%
             &:nth-child(2n+1)
-                padding-right: 140px
+                padding-right: 70px
                 left: -100vw
             &:nth-child(2n+2)
+                padding-left: 70px
                 right: -100vw
         img 
             display: block 
@@ -52,6 +54,10 @@
             opacity: 0
             vertical-align: baseline
             width: 10px
+        &+p
+            display: block
+            +rem(('font-size' : 16px, 'line-height' : 22px)) 
     p 
         +rem('font-size', 14px)
-        font-family: 'Museo Sans 500'
+        font-family: 'Gotham HTF'
+        font-weight: 300

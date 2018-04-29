@@ -1,0 +1,46 @@
+.faq-list
+    >li 
+        color: white 
+        font-family: 'Museo Sans 500'
+        &:not(:last-child)
+            margin-bottom: 8px
+        >p 
+            display: none 
+            font-family: 'Museo Sans 100'
+            font-style: italic
+            +rem(('font-size' : 16px, 'line-height' : 22px))
+            padding: 40px 140px
+            text-align: justify
+        >h4 
+            align-items: flex-start
+            background-color: darken($bluepen, 25%)
+            cursor: pointer
+            @extend .flex
+            flex-flow: column wrap 
+            height: 97px
+            justify-content: center
+            overflow: hidden
+            padding: 0 0 0 140px
+            text-transform: uppercase
+            +rem('font-size', 18px)
+            >span 
+                align-items: center
+                @extend .flex
+                flex-flow: row wrap 
+                justify-content: space-between 
+                width: 100%
+                .open-faq
+                    background-color: rgba(0,0,0,.1)
+                    color: $lightblue
+                    display: inline
+                    font-family: 'Museo Sans 100'
+                    +rem('font-size', 35px)
+                    line-height: 98px
+                    width: 90px                    
+        &.-active
+            >h4
+                background-color: $purple
+                color: $lightblue
+                >span 
+                    .open-faq
+                        color: black
