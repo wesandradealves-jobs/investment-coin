@@ -1,0 +1,84 @@
+.token-sale-steps
+    align-items: stretch
+    @extend .flex
+    flex-flow: row wrap 
+    justify-content: flex-start 
+    margin: 130px auto -130px
+    max-width: 1150px
+    width: 100%
+    &::before
+        content: url(assets/imgs/token-sale-shadow.png)
+        display: block
+        left: calc(50% - 1017px/2) 
+        position: absolute
+        top: -111px
+        z-index: 1
+    >li 
+        font-family: 'Gotham HTF'
+        flex: 0 0 auto
+        z-index: 2 
+        >span 
+            display: block
+            +rem('font-size', 22px)
+            font-weight: 300
+            height: 132px
+            position: relative
+            text-align: center 
+            text-transform: uppercase
+            width: 100%
+            small
+                display: inherit
+                +rem('font-size', 12px)
+            b,strong 
+                font-weight: 500
+            &:first-child
+                align-items: center
+                color: $purple
+                background: url(assets/imgs/token-sale-step.png)
+                background-size: 100% 100%
+                background-position: center 0
+                background-repeat: no-repeat                
+                @extend .flex
+                flex-flow: column wrap 
+                justify-content: center 
+                height: 155px
+                .status
+                    display: none
+                &::after
+                    bottom: -25px
+                    content: url(assets/imgs/token-dash.png)
+                    display: block
+                    left: calc(50% - .5px)
+                    position: absolute
+            &:last-child
+                color: darken($gray, 35%)
+                margin-top: 40px
+        @for $i from 1 through 4 
+            &:first-child:nth-last-child(#{$i}),
+            &:first-child:nth-last-child(#{$i}) ~ * 
+                width: 100% / $i    
+        &:first-child
+            >span 
+                &:first-child
+                    background-image: url(assets/imgs/token-sale-1-step.png) 
+            &.-active
+                >span 
+                    &:first-child
+                        background-image: url(assets/imgs/token-sale-1-step-active.png)                 
+        &:not(:first-child)
+            &.-active
+                >span 
+                    &:first-child
+                        background: url(assets/imgs/token-sale-step-active.png) center center / contain no-repeat transparent
+        &.-active
+            >span                      
+                &:first-child
+                    color: white
+                    .status
+                        display: block    
+                &:last-child
+                    color: gray
+                    small 
+                        color: darken($gray, 30%)
+                        b
+                            color: gray                    

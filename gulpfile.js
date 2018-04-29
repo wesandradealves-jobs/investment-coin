@@ -10,6 +10,7 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),    
     del = require('del'),
     runSequence = require('run-sequence'),
+    clean = require('gulp-clean'),
     browserSync = require('browser-sync').create();
  
 
@@ -67,12 +68,18 @@ gulp.task('css-dist', function() {
 
 // Delete actual commons and vendors for build updating
 gulp.task('clean:js', function () {
-    return del.sync(['assets/js/commons.js','assets/js/vendors.js']);
+    return gulp.src(['assets/js/commons.js','assets/js/vendors.js'], {read: false})
+      .pipe(clean({force: true}))
+});
+
+gulp.task('scripts', ['clean:js'], function () {
+    gulp.src(['assets/js/commons.js','assets/js/vendors.js'])
+    .pipe(gulp.dest('assets/js/'));
 });
 
 // Commons .js generator
 gulp.task('commons', function(){
-  return gulp.src(['assets/**/*.js','!assets/js/commons','!assets/js/vendors'])
+  return gulp.src(['assets/**/*.js','!assets/js/commons.js','!assets/js/vendors.js','!assets/js/jquery.mousewheel.js'])
     .pipe(uglify())
     .pipe(concat('commons.js'))
     .pipe(gulp.dest('assets/js'));
@@ -81,7 +88,7 @@ gulp.task('commons', function(){
 
 // Vendors .js generator
 gulp.task('vendors', function() {
-  return gulp.src('node_modules/jquery/dist/jquery.js')
+  return gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery-mousewheel/jquery.mousewheel.js'])
     .pipe(uglify())
     .pipe(concat('vendors.js'))
     .pipe(gulp.dest('assets/js'));
@@ -129,13 +136,13 @@ gulp.task('fonts', function() {
 
 
 // Browsersync + SASS + js generators and cleaner
-gulp.task('serve', ['clean:js', 'sass', 'commons', 'vendors'], function() {
+gulp.task('serve', ['scripts', 'sass', 'commons', 'vendors'], function() {
     browserSync.init({
         server: './'
     });
     gulp.watch('**/*.sass', ['sass']);
     gulp.watch(['**/*.html','assets/**/*.js','!assets/js/commons.js','!assets/js/vendors.js']).on('change', browserSync.reload);
-    gulp.watch(['assets/**/*.js','!assets/js/commons.js','!assets/js/vendors.js'], ['clean:js','commons','vendors']);
+    gulp.watch(['assets/**/*.js','!assets/js/commons.js','!assets/js/vendors.js'], ['scripts','commons','vendors']);
 });
 
 // Clean actual (if exist) dist before build

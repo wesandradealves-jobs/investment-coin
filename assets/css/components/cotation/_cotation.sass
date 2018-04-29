@@ -1,0 +1,23 @@
+.cotation
+    align-items: center
+    color: white 
+    @extend .flex
+    flex-flow: row wrap 
+    flex: 1
+    flex-grow: 4
+    justify-content: space-around
+    opacity: 0
+    padding: 0 40px
+    &.-animated
+        animation: opacity 2.5s forwards linear    
+    >li 
+        +rem('font-size', 9px)
+        text-align: center
+        &:not(:last-child)
+            &::after
+                content: "/"
+                color: black
+                display: inline-block 
+                padding-left: 15px
+                +rem('font-size', 11px)
+                vertical-align: middle

@@ -1,0 +1,51 @@
+.header
+    background-color: $mediumpurple
+    border-radius: 0 0 999px 999px
+    border-top: 2px transparentize($purple, .3) solid
+    margin: 0 auto
+    max-width: 1520px
+    +transition(2s)
+    top: -400px
+    width: 100%
+    &.-sticky
+        background-color: transparentize($mediumpurple, .5)
+        border-radius: 0
+        max-width: 100%
+        position: fixed 
+        z-index: 100
+        .container
+            .navigation
+                &.-main-navigation
+                    line-height: 60px
+                    >ul
+                        >li 
+                            padding-top: 15px
+                            padding-bottom: 15px                            
+                            &:hover,
+                            &.-active
+                                &::after
+                                    bottom: 0 
+                                    
+        &.-stuck
+            top: 0
+    &.-animated
+        animation: header 2.5s forwards linear
+    >.container
+        align-items: center
+        @extend .flex
+        flex-flow: row wrap 
+        justify-content: space-between
+        padding: 0px 100px
+        >.header-logo
+            flex: 1
+        &::before
+            border-radius: 0 0 999px 999px
+            background-color: transparentize($purple, .6)
+            content: ""
+            display: block
+            height: 10px
+            max-width: 225px
+            left: calc(50% - 225px/2)
+            position: absolute  
+            top: 0
+            width: 100%
