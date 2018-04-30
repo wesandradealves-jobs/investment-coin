@@ -17,8 +17,8 @@ $(document).ready(function () {
         for(var j = 0; j < $(".footer .navigation ul li").length; j++){
             if($(".footer .navigation ul li").eq(j).find("a").attr("href") == "javascript:void(0)"){
                 var id = $(".footer .navigation ul li").eq(j).find("a").attr("title");
-                ids.push("./#" + id.toLowerCase().replace(/\s/g, '-'));                
-            }
+                ids.push("index.html#" + id.toLowerCase().replace(/\s/g, '-'));                
+            } 
             var menuId = $(".footer .navigation ul li").eq(j).find("a").attr("title");
             menuIds.push(menuId.toLowerCase().replace(/\s/g, ''));   
         }
@@ -43,7 +43,7 @@ $(document).ready(function () {
             if(location.hash){
                 sectionId = location.hash,
                 sectionOffset = $(sectionId).offset();
-                $("html, body").animate({scrollTop: sectionOffset.top  - $(".header").outerHeight()}, 500);
+                $("html, body").animate({scrollTop: sectionOffset.top + $(".header").outerHeight()}, 500);
             }
         }
 
@@ -63,14 +63,12 @@ $(document).ready(function () {
 
                 lastScrollTop = st;
                 
-                var stHeader = $(window).scrollTop() + ($(".header").outerHeight() + 180);
-    
                 closeMenu();
                 
                 (direction == "baixo") ? s++ : (s > 0) ? s-- : '';
 
                 for(var o = 0; o < sections; o++) { 
-                    if(stHeader>=offsets[o]){
+                    if(st + $(".header").outerHeight() * 2 >= offsets[o]){
                         $(".pg-home .navigation ul li:nth-child("+o+")")
                         .addClass("-active")
                         .prevAll().removeClass("-active");  
@@ -136,7 +134,7 @@ $(document).ready(function () {
                         .nextAll().find(".grid")
                         .removeClass("-animated");
         
-                        $("html, body").animate({scrollTop: scrollTo  - $(".header").outerHeight()}, 500); 
+                        $("html, body").animate({scrollTop: scrollTo - $(".header").outerHeight()}, 500); 
                     }
                 }
             });  
@@ -144,6 +142,8 @@ $(document).ready(function () {
             $(window).resize(function() {
                 $(".navigation ul li").removeClass("-active");
                 closeMenu();
+
+                location.reload();
             });
         }
 });  

@@ -33,8 +33,10 @@
                 padding: 0 0 0 30px
             text-transform: uppercase
             +rem('font-size', 18px)
-            +mq(490px, max)
+            +mq(737px, max)
                 +rem('font-size', 14px)
+            +mq(490px, max)
+                +rem('font-size', 11px)
             >span 
                 align-items: center
                 @extend .flex
@@ -48,7 +50,9 @@
                         text-align: left
                         width: 100%
                     +mq(490px, max)
-                        padding-right: 30px
+                        padding-right: 0
+                        overflow: hidden
+                        word-break: break-all
                 .open-faq
                     background-color: rgba(0,0,0,.1)
                     color: $lightblue
