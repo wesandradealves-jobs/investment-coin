@@ -6,8 +6,6 @@
     border-top: 2px transparentize($purple, .3) solid
     margin: 0 auto
     max-width: 1520px
-    +transition(2s)
-    top: -400px
     width: 100%
     +mq(950px, max)
         z-index: 10
@@ -17,8 +15,12 @@
         +mq(1250px, max)
             display: none
         max-width: 100%
-        position: fixed 
+        position: fixed
+        +transition(1000ms) 
+        top: -400px            
         z-index: 100
+        .header-footer
+            display: none
         .container
             .navigation
                 &.-main-navigation
@@ -34,8 +36,6 @@
                                     
         &.-stuck
             top: 0
-    &.-animated
-        animation: header 2.5s forwards linear
     >.container
         align-items: center
         @extend .flex
