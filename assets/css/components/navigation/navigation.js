@@ -2,21 +2,42 @@ $(document).ready(function () {
     var offsets = [],
         s = 0,
         k = 0,
+        q = 0,
         lastScrollTop = 0,
-        sections = $(".pg-home main section").length
+        sections = $(".pg-home main section").length,
+        menuIds = [],
         ids = [];
+
+        $(".footer .container")
+        .append("<a href='javascript:void(0)' class='back-to-top'></a>")
+        .click(function() { 
+            $("html, body").animate({scrollTop: 0}, 500);
+        }); 
 
         for(var j = 0; j < $(".footer .navigation ul li").length; j++){
             if($(".footer .navigation ul li").eq(j).find("a").attr("href") == "javascript:void(0)"){
                 var id = $(".footer .navigation ul li").eq(j).find("a").attr("title");
                 ids.push("./#" + id.toLowerCase().replace(/\s/g, '-'));                
             }
+            var menuId = $(".footer .navigation ul li").eq(j).find("a").attr("title");
+            menuIds.push(menuId.toLowerCase().replace(/\s/g, ''));   
         }
 
         if($("body").is(".pg-interna")){
+            var url = window.location.href,
+                patch = url.split("/").pop(),
+                currentPage = patch.substring(0, patch.indexOf(".html"));
+
             for(var l = 0; l < ids.length; l++){
                 k++;
                 $(".navigation li:nth-child("+k+")").find("a").attr("href", ids[l]);
+            }
+            for(var m = 0; m < $(".footer .navigation ul li").length; m++){
+                q++;
+                $(".navigation ul li:nth-child("+q+")").attr("id", menuIds[m]);
+                if($(".navigation ul li:nth-child("+q+")").attr("id") == currentPage){
+                    $(".navigation ul li:nth-child("+q+")").addClass("-active");
+                }
             }
         } else {
             if(location.hash){
@@ -33,11 +54,13 @@ $(document).ready(function () {
             }
             $(window).scroll(function(event){
                 var st = $(this).scrollTop();
+
                 if (st > lastScrollTop){
                     var direction = "baixo"
                 } else {
                     var direction = "cima"
                 }
+
                 lastScrollTop = st;
                 
                 var stHeader = $(window).scrollTop() + ($(".header").outerHeight() + 180);
@@ -73,6 +96,10 @@ $(document).ready(function () {
                         .removeClass("-animated");
                     }
                 }
+
+                var backTopTopInit = $("body").outerHeight()*0.25;
+
+                (st >= backTopTopInit) ? $(".back-to-top").fadeIn() : $(".back-to-top").fadeOut();
             });  
 
             $(".navigation ul li")

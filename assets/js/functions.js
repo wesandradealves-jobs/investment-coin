@@ -23,7 +23,7 @@ $(document).ready(function () {
     $(".token-sale-steps > li.-active").prevAll().addClass("-active");
     $(window).scroll(function(event){
         closeMenu();
-	}); 
+    }); 
 }); 
       
       
