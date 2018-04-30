@@ -1,0 +1,59 @@
+.pg-whitepaper
+    #wrap 
+        background-image: url(assets/imgs/BG4.jpg) 
+        .whitepaper
+            font-family: 'Gotham HTF'
+            .coin
+                +mq(620px, max)
+                    height: 100px
+                    width: auto
+                +mq(414px, max)
+                    height: auto 
+                    width: 100%    
+            .title
+                color: $lightblue
+                +rem('font-size', 80px)
+                +mq(620px, max)
+                    +rem('font-size', 40px)
+                +mq(620px, max)
+                    +rem('font-size', 35px)
+                font-weight: 800
+                text-transform: uppercase
+                >span 
+                    color: white
+                    display: block
+                    font-weight: 500 
+                    >small 
+                        +rem('font-size', 30px)
+                        +mq(620px, max)
+                            +rem('font-size', 16px)
+            p
+                font-family: 'Museo Sans 100'
+                +rem(('line-height' : 18px, 'font-size' : 14px))
+                max-width: 480px
+                margin: 60px auto 80px
+                text-transform: uppercase
+            .btn
+                display: block
+            .rectangle-area
+                display: block
+                margin: 107px auto 255px
+                +mq(737px, max)
+                    margin: 107px auto 60px
+                .rectangle
+                    background: url(assets/imgs/rectangle.png) center center / contain no-repeat transparent 
+                    display: block
+                    height: 0
+                    margin: 0 auto
+                    max-width: 780px
+                    padding: 0 0 19%
+                    position: relative
+                    width: 100%
+                    z-index: 2
+                &::after
+                    content: url(assets/imgs/white-paper-graph.png)
+                    display: block
+                    left: calc(50% - 145px/2) 
+                    position: absolute 
+                    top: calc(100% - 140px)
+                    z-index: 1
