@@ -10,9 +10,7 @@
             display: block 
             margin: 0 auto
             opacity: 0
-            +mq(1440px, max)
-                height: 185px
-            +mq(1366px, max)
+            +mq(1024px, max)
                 height: 125px
             +mq(450px, max)
                 height: auto 
@@ -36,8 +34,8 @@
         font-family: 'Gotham HTF'
         font-weight: 800
         +rem('font-size', 80px)
-        +mq(1366px, max)
-            +rem('font-size', 60px)
+        +mq(1024px, max)
+            +rem('font-size', 38px)
         line-height: 1
         margin: 95px auto 50px
         text-align: center
@@ -49,14 +47,14 @@
                 display: block
                 font-weight: 500
                 +rem('font-size', 30px)
-                +mq(1366px, max)
+                +mq(1024px, max)
                     +rem('font-size', 15px)
             &:last-child
                 animation: bottom-text 2.5s forwards linear
                 bottom: -30px 
                 +rem('font-size', 45px)
-                +mq(1366px, max)
-                    +rem('font-size', 30px)
+                +mq(1024px, max)
+                    +rem('font-size', 20px)
                 opacity: 0
             &:first-child
                 animation: top-text 2.5s forwards linear

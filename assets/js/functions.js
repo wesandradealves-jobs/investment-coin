@@ -12,14 +12,14 @@ function closeMenu(){
 $(document).ready(function () {
     transformicons.add('.tcon');
     setTimeout(function(){  
-        $(".header:not(.-sticky)").addClass("-animated");
-    }, 500);
+        $(".pg-home .header:not(.-sticky)").addClass("-animated");
+    }, 100);
     setTimeout(function(){  
-        $(".header:not(.-sticky) .cotation, .banner .coin-section .coin-text").addClass("-animated");
-    }, 3000);
+        $(".pg-home .header:not(.-sticky) .cotation, .banner .coin-section .coin-text").addClass("-animated");
+    }, 1500);
     setTimeout(function(){  
-        $(".header:not(.-sticky) .social-networks").addClass("-animated");
-    }, 4000);
+        $(".pg-home .header:not(.-sticky) .social-networks").addClass("-animated");
+    }, 2000);
     $(".token-sale-steps > li.-active").prevAll().addClass("-active");
     $(window).scroll(function(event){
         closeMenu();

@@ -1,4 +1,21 @@
 .pg-home
+    #wrap 
+        background-image: url(assets/imgs/BG2.jpg) 
+        .main
+            padding-top: 40px
+        .header:not(.-sticky)
+            top: -400px
+            &.-animated
+                animation: header 1.5s forwards linear
+            .header-footer
+                .social-networks
+                    opacity: 0
+                    &.-animated
+                        animation: opacity 2.5s forwards linear                   
+            .cotation
+                opacity: 0
+                &.-animated
+                    animation: opacity 2.5s forwards linear                                
     .pin
         &.-welcome,
         &.-future
@@ -15,10 +32,9 @@
         &.-future
             right: 10px
     section
-        margin-bottom: 50vh
+        &:not(:last-child)
+            margin-bottom: 50vh
         +mq(1250px, max)
-            &:last-child
-                margin-bottom: 60px
             &:not(:last-child)
                 margin-bottom: calc(132px + 18px)
         &.banner
@@ -37,6 +53,25 @@
             min-height: 100vh
             +mq(1250px, max)
                 min-height: auto
+            .grid
+                >div
+                    opacity: 0
+                    +transition(500ms)
+                    +mq(1251px, min)
+                        &:not(:only-child)
+                            &:nth-child(2n+1)
+                                left: -100vw
+                            &:nth-child(2n+2)
+                                right: -100vw
+                &.-animated
+                    >div
+                        opacity: 1
+                        +mq(1251px, min)
+                            &:not(:only-child)
+                                &:nth-child(2n+1)
+                                    left: 0
+                                &:nth-child(2n+2)
+                                    right: 0                
             &:nth-child(odd)
                 .grid
                     flex-flow: row-reverse wrap

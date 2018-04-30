@@ -162,9 +162,11 @@ gulp.task('clean:build', function () {
 });
 
 // Build task
-gulp.task('build', function () {
+gulp.task('build', function (callback) {
     console.log('Building project...')
-    runSequence('clean:build', ['html', 'css-dist', 'images', 'fonts', 'htaccess', 'js-dist']);
+    runSequence('clean:build', ['html', 'css-dist', 'images', 'fonts', 'htaccess', 'js-dist'],
+        callback
+    );
 });
 
 
