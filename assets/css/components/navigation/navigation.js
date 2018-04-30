@@ -17,8 +17,8 @@ $(document).ready(function () {
         for(var j = 0; j < $(".footer .navigation ul li").length; j++){
             if($(".footer .navigation ul li").eq(j).find("a").attr("href") == "javascript:void(0)"){
                 var id = $(".footer .navigation ul li").eq(j).find("a").attr("title");
-                ids.push("./#" + id.toLowerCase().replace(/\s/g, '-'));                
-            }
+                ids.push("index.html#" + id.toLowerCase().replace(/\s/g, '-'));                
+            } 
             var menuId = $(".footer .navigation ul li").eq(j).find("a").attr("title");
             menuIds.push(menuId.toLowerCase().replace(/\s/g, ''));   
         }
