@@ -43,9 +43,8 @@ input
     min-height: 100vh
     overflow: hidden
     width: 100%
-    +mq(1250px, max)
+    +mq(1024px, max)
         min-height: auto 
-        overflow: initial
     .main
         padding: 160px 0 240px
         
@@ -79,6 +78,13 @@ input
         margin: 27px auto 0
         padding: 14px 0
         width: 100%
+
+        transform: perspective(1px) translateZ(0)
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0)
+        transition-duration: 0.5s
+        &:hover
+            transform: scale(0.8)
+            transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36)            
 
 .destaque
     display: block

@@ -1,8 +1,14 @@
 .pg-home
     #wrap 
         background-image: url(assets/imgs/BG2.jpg) 
+        +mq(1024px, min)
+            background-image: url(assets/imgs/footer-arch.png), url(assets/imgs/BG2.jpg)
+            background-position: center bottom, center 0
+            background-size: 55vw, cover
         .main
             padding-top: 40px
+            +mq(1024px, min)
+                padding-bottom: 15vw
         .header:not(.-sticky)
             top: -400px
             &.-animated
@@ -32,66 +38,82 @@
         &.-future
             right: 10px
     section
+        align-items: center 
+        @extend .flex
+        flex-flow: column wrap
+        justify-content: center 
+        min-height: 100vh
         &:not(:last-child)
-            margin-bottom: 50vh
-        +mq(1250px, max)
-            &:not(:last-child)
-                margin-bottom: calc(132px + 18px)
-        &.banner
-            align-items: center 
-            @extend .flex
-            flex-flow: column wrap
-            justify-content: center 
-            min-height: 100vh        
-            +mq(1250px, max)
-                min-height: auto    
-        &:not(.banner)
-            align-items: center 
-            @extend .flex
-            flex-flow: column wrap
-            justify-content: center 
-            min-height: 100vh
-            +mq(1250px, max)
-                min-height: auto
-            .grid
-                >div
+            &:not(.banner)
+                margin-bottom: 0
+                +mq(1680px, max)
+                    margin-bottom: 20vh
+                +mq(1366px, max)
+                    margin-bottom: 45vh
+            &.banner
+                +mq(1680px, max)
+                    margin-bottom: 20vh
+                +mq(1366px, max)
+                    margin-bottom: 45vh
+        .container
+            padding-left: 120px
+            padding-right: 120px
+            +mq(1366px, max)
+                padding-left: 60px
+                padding-right: 60px
+            +mq(737px, max)
+                padding-left: 15px
+                padding-right: 15px
+        .grid
+            >div
+                +mq(1025px, min)
                     opacity: 0
                     +transition(500ms)
-                    +mq(1251px, min)
+                +mq(1025px, min)
+                    &:not(:only-child)
+                        &:nth-child(2n+1)
+                            left: -100vw
+                        &:nth-child(2n+2)
+                            right: -100vw
+            &.-animated
+                >div
+                    opacity: 1
+                    +mq(1025px, min)
                         &:not(:only-child)
                             &:nth-child(2n+1)
-                                left: -100vw
+                                left: 0
                             &:nth-child(2n+2)
-                                right: -100vw
-                &.-animated
-                    >div
-                        opacity: 1
-                        +mq(1251px, min)
-                            &:not(:only-child)
-                                &:nth-child(2n+1)
-                                    left: 0
-                                &:nth-child(2n+2)
-                                    right: 0                
-            &:nth-child(odd)
-                .grid
-                    flex-flow: row-reverse wrap
-                    +mq(1250px, max)
-                        flex-flow: column wrap 
-                    >div
-                        &:not(:only-child)
-                            &:first-child
-                                padding-left: 70px
-                                +mq(1250px, max)
-                                    padding-left: 0
-                                padding-right: 0
-                            &:last-child
-                                padding-right: 70px
-                                +mq(1250px, max)
-                                    padding-right: 0
+                                right: 0                
+        &:nth-child(odd)
+            .grid
+                flex-flow: row-reverse wrap
+                +mq(1250px, max)
+                    flex-flow: column wrap 
+                >div
+                    &:not(:only-child)
+                        &:first-child
+                            padding-left: 70px
+                            +mq(1250px, max)
                                 padding-left: 0
+                            padding-right: 0
+                        &:last-child
+                            padding-right: 70px
+                            +mq(1250px, max)
+                                padding-right: 0
+                            padding-left: 0
         &.overview
+            +mq(1024px, min)
+                .container
+                    padding-top: 85px
+                    &::before
+                        content: url(assets/imgs/overview-title-curve.png)
+                        display: block 
+                        position: absolute 
+                        left: 8.7%
+                        top: -115px
+                        z-index: 1  
             .pin
-                top: -100px
+                top: -60px
             .grid-title
                 &::before
                     bottom: -35px
@@ -101,16 +123,27 @@
                     position: absolute 
                     z-index: 1
         &.team
+            +mq(1024px, min)
+                .container
+                    &::before
+                        content: url(assets/imgs/overview-team-anchor-curve.png)
+                        display: block
+                        right: 27.5%
+                        position: absolute
+                        top: -465px
+                        z-index: 1                  
+                    >*
+                        z-index: 2
             .pin
                 &.-who-we-are,
                 &.-team
-                    top: -25vh
+                    top: -120px
                     transform: rotate(-90deg)
                     transform-origin: center center
                 &.-who-we-are
-                    left: 130px 
+                    left: 60px 
                 &.-team
-                    right: 50px
+                    right: 17%
             .grid-title
                 &::before
                     bottom: -80px
@@ -120,9 +153,28 @@
                     position: absolute 
                     z-index: 1
         &.conversions
+            +mq(1024px, min)
+                .container
+                    padding-top: 115px
+                    &::before
+                        content: url(assets/imgs/conversion-team-separator.png)
+                        display: block
+                        left: calc(50% - 532px/2)
+                        position: absolute
+                        top: -280px
+                        z-index: 2                    
+                    &::after
+                        content: url(assets/imgs/conversion-squared-bg.png)
+                        display: block
+                        left: calc(50% - 1919px/2)
+                        position: absolute
+                        top: calc(50% - 709px/2)
+                        z-index: 1
+                    >*
+                        z-index: 3
             .pin
-                left: calc(50% - (100px/2 + 30px))
-                top: -40vh
+                left: 31.5%
+                top: -140px
             .grid-title
                 &+p~p 
                     color: $gray
@@ -138,15 +190,40 @@
                     top: calc(50% - 203px/2)
                     z-index: 1            
         &.token-sale
+            +mq(1024px, min)
+                .container
+                    &::before
+                        content: url(assets/imgs/conversion-tokensale-separator.png)
+                        display: block
+                        left: 40%
+                        position: absolute
+                        top: -210px
+                        z-index: 1
             .pin
-                left: 380px
-                top: -40vh
+                left: 39%
+                top: -160px
             .container
                 .grid
                     +mq(1250px, max)
                         flex-flow: column wrap
                         text-align: center
         &.our-story
+            +mq(1024px, min)
+                .container
+                    &::before
+                        content: url(assets/imgs/tokensale-story-separator.png)
+                        display: block
+                        left: 12%
+                        position: absolute
+                        top: -245px
+                        z-index: 1
+                    &::after
+                        content: url(assets/imgs/our-story-side.png)
+                        display: block 
+                        position: absolute 
+                        top: -130px
+                        left: -310px
+                        z-index: 1   
             .blockquote
                 p
                     color: $gray
@@ -157,7 +234,7 @@
                 +mq(1250px, max)
                     text-align: center
             .pin
-                right: 25px
+                right: 8%
                 bottom: -90px   
             .grid
                 >div
@@ -173,14 +250,30 @@
                     display: block
                     left: -90px
                     position: absolute 
-                    top: -60px
-                    z-index: 1     
+                    top: -105px
+                    z-index: 1
         &.benefits
+            +mq(1024px, min)
+                .container
+                    &::before
+                        content: url(assets/imgs/benefits-middle.png)
+                        display: block 
+                        position: absolute 
+                        top: -70px
+                        left: 13%
+                        z-index: 1                        
             .grid
                 align-items: stretch
                 p 
                     +rem('font-size', 14px)   
                 .grid-title
+                    &::before
+                        content: url(assets/imgs/square-5.png)
+                        display: block
+                        left: -60px
+                        position: absolute 
+                        top: -40px
+                        z-index: 1
                     &+p
                         min-height: 41px
                         margin-bottom: 35px     
