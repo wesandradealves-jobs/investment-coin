@@ -53,6 +53,12 @@ $(document).ready(function () {
                 window.location.reload();
             });
         });
+        if(location.hash){
+            getSection = location.hash;
+            setTimeout(function(){
+                $("html, body").animate({scrollTop: $(getSection).offset().top + 10}, 500); 
+            });
+        }        
     } else {
         var anchorsLength = $(".footer .navigation ul li").length;
         for(var a = 0; a < anchorsLength; a++){
