@@ -49,10 +49,10 @@ $(document).ready(function () {
         }); 
         $(window).resize(function() {
             closeMenu();
-            location.reload();
+            setTimeout(function(){
+                window.location.reload();
+            });
         });
-        console.log(ids);
-        console.log(positions);
     } else {
         var anchorsLength = $(".footer .navigation ul li").length;
         for(var a = 0; a < anchorsLength; a++){
@@ -65,5 +65,3 @@ $(document).ready(function () {
         });
     }
 });  
-    
-    
