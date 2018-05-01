@@ -17,7 +17,21 @@ const gulp = require('gulp'),
     runSequence = require('run-sequence'),
     clean = require('gulp-clean'),
     sassfiles = ['**/*.sass','assets/**/*.scss'],
+    environments = require('gulp-environments'),
+    ext_replace = require('gulp-ext-replace'),
+    foreach = require("gulp-foreach"),
+    file = require("gulp-file"),
+    addsrc = require('gulp-add-src'),
+    files = [{name: "dist/functions.php",content: "<?php // Silence is golden... ?>"},
+            {name: "dist/index.php",content: "<?php // Silence is golden... ?>"},
+            {name: "dist/header.php",content: "<?php // Silence is golden... ?>"},
+            {name: "dist/footer.php",content: "<?php // Silence is golden... ?>"},
+            {name: "dist/home.php",content: "<?php // Silence is golden... ?>"},
+            {name: "dist/page.php",content: "<?php // Silence is golden... ?>"}],
     browserSync = require('browser-sync').create();
+
+var development = environments.development,
+    production = environments.production;
     
 
 // SASS / CSS generator 
@@ -66,8 +80,7 @@ gulp.task('sass', function() {
 // CSS to dist
 gulp.task('css-dist', function() {
     return gulp.src(['./style.css'])
-        .pipe(gulp.dest('dist')
-    );
+        .pipe(gulp.dest('dist'));
 });
 
 // Delete actual commons and vendors for build updating
@@ -100,15 +113,13 @@ gulp.task('vendors', function() {
 // .js to dist
 gulp.task('js-dist', function() {
     return gulp.src(['assets/js/commons.js','assets/js/vendors.js'])
-        .pipe(gulp.dest('dist/assets/js/')
-    );
+        .pipe(gulp.dest('dist/assets/js/'));
 });
 
 // Copy htaccess gzip compressor to dist
 gulp.task('htaccess', function() {
     return gulp.src('./.htaccess')
-        .pipe(gulp.dest('dist')
-    );
+        .pipe(development(gulp.dest('dist')));
 });
 
 // Copy and minify images to dist
@@ -126,15 +137,29 @@ gulp.task('images', function(){
 // Copy and minify html to dist
 gulp.task('html', function() {
     return gulp.src('*.html')
-    .pipe(htmlmin({collapseWhitespace: true})) // Opcional
+    .pipe(development(htmlmin({collapseWhitespace: true})))
+    .pipe(production(ext_replace('.php')))
     .pipe(gulp.dest('dist'));
+});
+
+// Create util files for prod:build
+gulp.task("create-file", function() {   
+    return gulp.src("./README.md", {base: "./dist"})
+    .pipe(foreach(function(stream, f){
+        files.forEach(function(gfile){
+            stream
+                .pipe(file(gfile.name, gfile.content))
+                .pipe(production(gulp.dest("./")));
+        });
+        return stream;
+    }))
+    .pipe(production(gulp.dest("./dist")));
 });
 
 // Fonts to dist
 gulp.task('fonts', function() {
     return gulp.src('assets/fonts/*')
-        .pipe(gulp.dest('dist/assets/fonts/')
-    );
+        .pipe(gulp.dest('dist/assets/fonts/'));
 });
 
 // Browsersync + SASS + js generators and cleaner
@@ -155,7 +180,7 @@ gulp.task('clean:build', function () {
 // Build task
 gulp.task('build', function (callback) {
     console.log('Building project...')
-    runSequence('clean:build', ['html', 'css-dist', 'images', 'fonts', 'htaccess', 'js-dist'],
+    runSequence('clean:build', ['html', 'css-dist', 'images', 'fonts', 'htaccess', 'js-dist', 'create-file'],
         callback
     );
 });
