@@ -2,15 +2,17 @@ var nav = $(".navigation.-mobile"),
     tcon = $(".tcon");
 
 function mobileNavigation(e){
+    var e = $(e);
     nav.toggleClass("-active");
+    e.addClass("tcon-transform");
 } 
+
 function closeMenu(){
-    nav.removeClass("-active"),
-    tcon.removeClass("tcon-transform")            
+    nav.removeClass("-active");
+    tcon.removeClass("tcon-transform");
 }
 
 $(document).ready(function () {
-    transformicons.add('.tcon');
     setTimeout(function(){  
         $(".pg-home .header:not(.-sticky)").addClass("-animated");
     }, 100);
@@ -21,9 +23,6 @@ $(document).ready(function () {
         $(".pg-home .header:not(.-sticky) .social-networks").addClass("-animated");
     }, 2000);
     $(".token-sale-steps > li.-active").prevAll().addClass("-active");
-    $(window).scroll(function(event){
-        closeMenu();
-    }); 
 }); 
       
       
