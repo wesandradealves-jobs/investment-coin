@@ -63,14 +63,12 @@ gulp.task('sass', function() {
         .pipe(browserSync.stream());
 });
 
-
 // CSS to dist
 gulp.task('css-dist', function() {
     return gulp.src(['./style.css'])
         .pipe(gulp.dest('dist')
     );
 });
-
 
 // Delete actual commons and vendors for build updating
 gulp.task('clean:js', function () {
@@ -91,7 +89,6 @@ gulp.task('commons', function(){
     .pipe(gulp.dest('assets/js'));
 });
 
-
 // Vendors .js generator
 gulp.task('vendors', function() {
   return gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery-mousewheel/jquery.mousewheel.js'])
@@ -100,7 +97,6 @@ gulp.task('vendors', function() {
     .pipe(gulp.dest('assets/js'));
 });
 
-
 // .js to dist
 gulp.task('js-dist', function() {
     return gulp.src(['assets/js/commons.js','assets/js/vendors.js'])
@@ -108,14 +104,12 @@ gulp.task('js-dist', function() {
     );
 });
 
-
 // Copy htaccess gzip compressor to dist
 gulp.task('htaccess', function() {
     return gulp.src('./.htaccess')
         .pipe(gulp.dest('dist')
     );
 });
-
 
 // Copy and minify images to dist
 gulp.task('images', function(){
@@ -129,7 +123,6 @@ gulp.task('images', function(){
       .pipe(gulp.dest('dist/assets/imgs'));
 });
 
-
 // Copy and minify html to dist
 gulp.task('html', function() {
     return gulp.src('*.html')
@@ -137,14 +130,12 @@ gulp.task('html', function() {
     .pipe(gulp.dest('dist'));
 });
 
-
 // Fonts to dist
 gulp.task('fonts', function() {
     return gulp.src('assets/fonts/*')
         .pipe(gulp.dest('dist/assets/fonts/')
     );
 });
-
 
 // Browsersync + SASS + js generators and cleaner
 gulp.task('serve', ['scripts', 'sass', 'commons', 'vendors'], function() {
@@ -168,7 +159,6 @@ gulp.task('build', function (callback) {
         callback
     );
 });
-
 
 // Default task
 gulp.task('default', ['serve']);
