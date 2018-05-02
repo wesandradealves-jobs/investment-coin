@@ -10,18 +10,18 @@
             +mq(1024px, min)
                 padding-bottom: 15vw
         .header:not(.-sticky)
+            animation: header 1.5s forwards linear
             top: -400px
-            &.-animated
-                animation: header 1.5s forwards linear
+            animation-delay: 100ms
             .header-footer
                 .social-networks
+                    animation: opacity 2.5s forwards linear  
                     opacity: 0
-                    &.-animated
-                        animation: opacity 2.5s forwards linear                   
+                    animation-delay: 2000                 
             .cotation
                 opacity: 0
-                &.-animated
-                    animation: opacity 2.5s forwards linear                                
+                animation: opacity 2.5s forwards linear 
+                animation-delay: 1500ms                               
     .pin
         &.-welcome,
         &.-future

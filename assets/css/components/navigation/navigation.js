@@ -49,9 +49,9 @@ $(document).ready(function () {
         }); 
         $(window).resize(function() {
             closeMenu();
-            // setTimeout(function(){
-            //     window.location.reload();
-            // });
+            setTimeout(function(){
+                window.location.reload();
+            });
         });
         if(location.hash){
             getSection = location.hash;

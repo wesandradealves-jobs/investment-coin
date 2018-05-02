@@ -17,10 +17,18 @@
         font-family: 'Gotham HTF'
         flex: 0 0 auto
         z-index: 2 
-        +mq(710px, max)
-            width: 50%!important
+        +mq(738px, min)
+            margin: 0 -25px
+            transform: scale(.9)
+            width: calc(25% + 50px)
+            +mq(932px, max)
+                >span 
+                    &:last-child
+                        transform: scale(.8)
+        +mq(737px, max)
+            width: 50%
         +mq(520px, max)
-            width: 100%!important
+            width: 100%
         >span 
             display: block
             +rem('font-size', 22px)
@@ -36,12 +44,13 @@
             b,strong 
                 font-weight: 500
             &:first-child
+                background-image: url(assets/imgs/token-sale-step.png)
                 align-items: center
                 color: $purple
-                background: url(assets/imgs/token-sale-step.png)
+                background-position: center center
+                background-repeat: no-repeat
+                background-color: transparent      
                 background-size: 100% 100%
-                background-position: center 0
-                background-repeat: no-repeat                
                 @extend .flex
                 flex-flow: column wrap 
                 justify-content: center 
@@ -58,23 +67,19 @@
                 color: darken($gray, 35%)
                 margin-top: 40px
         @for $i from 1 through 4 
-            &:first-child:nth-last-child(#{$i}),
-            &:first-child:nth-last-child(#{$i}) ~ * 
-                width: 100% / $i    
+            &:nth-child(#{$i})
+                z-index: #{$i}
         &:first-child
-            >span 
-                &:first-child
-                    background-image: url(assets/imgs/token-sale-1-step.png) 
-            &.-active
-                >span 
-                    &:first-child
-                        background-image: url(assets/imgs/token-sale-1-step-active.png)                 
-        &:not(:first-child)
-            &.-active
-                >span 
-                    &:first-child
-                        background: url(assets/imgs/token-sale-step-active.png) center center / contain no-repeat transparent
+            background-image: url(assets/imgs/token-sale-1-step.png) 
         &.-active
+            &:first-child
+                >span
+                    &:first-child
+                        background-image: url(assets/imgs/token-sale-1-step-active.png)  
+            &:not(:first-child)
+                >span
+                    &:first-child
+                        background-image: url(assets/imgs/token-sale-step-active.png)  
             >span                      
                 &:first-child
                     color: white
