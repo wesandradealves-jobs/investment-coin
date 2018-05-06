@@ -1,51 +1,36 @@
 $(document).ready(function () {
-    var homeSections = ($("body").is(".pg-home")) ? $(".main").children().length : false,
-        ids = [],
-        idsInterna = [],
-        lastScrollTop = 0,
-        url = (window.location.href) ? window.location.href : false,
-        patch = (url) ? url.split("/").pop() : false,
-        currentPage = (patch) ? patch.substring(0, patch.indexOf(".html")) : false,        
-        positions = [];
-
-    if(homeSections){
-        for(var a = 1; a < homeSections; a++){
-            ids.push($(".main section").eq(a).attr("id")); 
-            positions.push($(".main section").eq(a).offset().top);
-
-            $(".navigation li:nth-child("+a+")")
-            .find("a")
-            .click(function() {
-                var scrollTo = $(this).parent().index();
+    if($('body').is('.pg-home')){
+        for(var a = 1; a < $('.main').children().length; a++){
+            $('.navigation li:nth-child('+a+')')
+            .find('a')
+            .click(function(e) {
+                if (/#/.test(this.href)) {
+                    e.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: $($.attr(this, 'href')).offset().top
+                    }, 500);                    
+                }
+                $(this).closest('ul')
+                .find('.-active').not($(this).parent())
+                .removeClass('-active');
                 
-                $(this).closest("ul")
-                .find(".-active").not($(this).parent())
-                .removeClass("-active");
-                
-                $(this).parent().addClass("-active");
-                
-                $("html, body").animate({scrollTop: positions[scrollTo]}, 500); 
+                $(this).parent().addClass('-active');
             }); 
         }
         $(window).scroll(function(event){
-            var st = $(this).scrollTop();
             closeMenu();
-            for(var b = 0; b < homeSections; b++){
-                var section = $(".main section#"+ids[b]).find(".grid"),
-                    navItem = $(".navigation ul li:nth-child("+(b+1)+")");
-                if(st + $(".header").outerHeight() * 2 >= positions[b]){
+            var st = $(this).scrollTop();
 
-                    navItem.closest("ul")
-                    .find(".-active").not(navItem)
-                    .removeClass("-active");
-
-                    section.addClass("-animated"),
-                    navItem.addClass("-active")
+            $( 'section' ).each(function() {
+                if($(this).offset().top >= st + $('.header').outerHeight()){
+                    $('.navigation ul li:nth-child('+$(this).index()+')').removeClass('-active');
+                    $(this).find('.grid').removeClass('-animated');
                 } else {
-                    section.removeClass("-animated"),
-                    navItem.removeClass("-active")
+                    $('.navigation ul li:not(:nth-child('+$(this).index()+'))').removeClass('-active');
+                    $('.navigation ul li:nth-child('+$(this).index()+')').addClass('-active');
+                    $(this).find('.grid').addClass('-animated');
                 }
-            }
+            });
         }); 
         $(window).resize(function() {
             closeMenu();
@@ -53,21 +38,19 @@ $(document).ready(function () {
                 window.location.reload();
             });
         });
-        if(location.hash){
-            getSection = location.hash;
-            setTimeout(function(){
-                $("html, body").animate({scrollTop: $(getSection).offset().top + 10}, 500); 
-            });
-        }        
     } else {
-        var anchorsLength = $(".footer .navigation ul li").length;
-        for(var a = 0; a < anchorsLength; a++){
-            idsInterna.push("index.html#" + $(".footer .navigation ul li").eq(a).find("a").attr("title").toLowerCase().replace(/\s/g, '-'));  
-        }
-        $.each(idsInterna, function (index, value) {
-            if($(".navigation ul li:nth-child("+(index+1)+") a").attr("href") === "javascript:void(0)"){
-                $(".navigation ul li:nth-child("+(index+1)+") a").attr("href", value)
-            }
+        $( '.navigation ul li a' ).each(function() {
+            $(this).attr("href", "index.html" + '#' + $(this).attr('href').split('#').pop())
+        });
+    }
+    if(location.hash){
+        setTimeout(function(){
+            $( '.navigation ul li a' ).each(function() {
+                if('#' + $(this).attr('href').split('#').pop() == location.hash){
+                    $(this).parent().addClass('-active');
+                }
+            });
+            $('html, body').animate({scrollTop: $(location.hash).offset().top}, 500); 
         });
     }
 });  
