@@ -24,12 +24,14 @@
     textarea
         background-color: $lightmate
         border-bottom: 2px $purple solid
+        box-shadow: none!important
         color: $gray
         font-family: 'Museo Sans 500'
         +rem('font-size', 13px)
         height: 40px
         +rem('line-height', 40px)
         overflow: hidden
+        outline: none!important
         padding: 17px
         text-transform: normal
         resize: none
@@ -45,6 +47,8 @@
         &:-ms-input-placeholder 
             color: $gray
             text-transform: uppercase
+        &:valid
+            border-bottom-color: lightgreen
     textarea
         line-height: initial 
         height: 150px
