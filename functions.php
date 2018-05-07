@@ -457,6 +457,16 @@ if( function_exists('acf_add_options_page') ) {
 function register_required_plugins() {
     $plugins = array(
         array(
+            'name' => 'contact-form-7-mailchimp-extension',
+            'slug' => 'contact-form-7-mailchimp-extension', 
+                    'source' => get_template_directory_uri() . '/plugins/contact-form-7-mailchimp-extension.zip', 
+                    'required' => true, 
+                    'version' => '', 
+                    'force_activation' => true, 
+                    'force_deactivation' => false, 
+                    'external_url' => '',
+                ),
+        array(
             'name' => 'acf-repeater',
             'slug' => 'acf-repeater', 
                     'source' => get_template_directory_uri() . '/plugins/acf-repeater.zip', 
