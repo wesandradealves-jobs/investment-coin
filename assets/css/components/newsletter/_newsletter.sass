@@ -10,39 +10,39 @@
             height: 25px 
             line-height: 25px
             vertical-align: middle
-            &[type="submit"], &:not([type="text"]), &:not([type="mail"])
+            &[type="submit"], &:not([type="text"]), &:not([type="email"])
                 color: black
                 +rem(('font-size' : 11px, 'line-height' : 8px))
-        input[type="text"],
-        input[type="mail"]
-            background-color: $grayblue
-            box-shadow: none!important
-            color: $lightpurple
-            display: block
-            outline: 0!important
-            font-family: 'Museo Sans 500'
-            +rem('font-size', 11px)
-            padding-left: 10px
-            +mq(1440px, max)
-                padding-right: 15px
-            +mq(1280px, max)
-                padding-right: 32px
-            +mq(1248px, max)
-                padding-right: 0
-            width: 100%
-            &:invalid
-                border-bottom: 2px red solid
+            &[type="text"],
+            &[type="email"]
+                background-color: $grayblue
+                box-shadow: none!important
+                color: $lightpurple
+                display: block
+                outline: 0!important
+                font-family: 'Museo Sans 500'
+                +rem('font-size', 11px)
+                padding-left: 10px
+                +mq(1440px, max)
+                    padding-right: 15px
+                +mq(1280px, max)
+                    padding-right: 32px
+                +mq(1248px, max)
+                    padding-right: 0
+                width: 100%
+                &:invalid
+                    border-bottom: 2px red solid
         >*
             display: inline-block 
             vertical-align: middle
-        >span 
-            max-width: 140px
-            +mq(1440px, max)
-                margin-right: -10px
-            +mq(1280px, max)
-                margin-right: -27px
-            +mq(1248px, max)
-                margin-right: 0
-        span.wpcf7-response-output,
-        div.screen-reader-response
+            &:not([type="submit"])
+                +mq(1440px, max)
+                    margin-right: -10px
+                +mq(1280px, max)
+                    margin-right: -27px
+                +mq(1248px, max)
+                    margin-right: 0
+                width: 140px
+        div.wpcf7-response-output, 
+        span.wpcf7-not-valid-tip
             display: none!important
