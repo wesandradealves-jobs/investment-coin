@@ -16,7 +16,7 @@
     <link rel="apple-touch-icon" href="favico.png">
     <link rel="shortcut icon" type="image/png" href="favico.png">
   </head>
-  <body class="pg-interna pg-whitepaper"> 
+  <body class="pg-interna pg-contact"> 
     <div id="wrap">
       <nav class="navigation -mobile">
         <ul>
@@ -83,8 +83,8 @@
               <li><a title="Benefits" href="#benefits">Benefits</a></li>
               <li><a title="FAQ" href="#faq">FAQ</a></li>
               <li><a title="Payouts" href="#">Payouts</a></li>
-              <li><a title="White Paper" href="whitepaper.html">White Paper</a></li>
-              <li><a title="Contact Us" href="contactus.html">Contact Us</a></li>
+              <li><a title="White Paper" href="whitepaper.html#whitepaper">White Paper</a></li>
+              <li><a title="Contact Us" href="contactus.html#contactus">Contact Us</a></li>
               <li>
                   <button onclick="mobileNavigation()" type="button" class="tcon tcon-menu--xcross" aria-label="toggle menu">
                       <span class="tcon-menu__lines" aria-hidden="true"></span>
@@ -147,26 +147,35 @@
       </header>
       <main class="main">
         <div class="inner-wrap">
-          <section class="whitepaper">
+          <section class="contact">
             <div class="container">
               <div class="grid">
                 <div>
-                  <img class="coin" height="140" src="assets/imgs/coin.png" alt="A complex of solutions - whitepaper" />
-                  <h2 class="title">
-                    <span><small>a complex of solutions</small></span>
-                    white paper
-                  </h2>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam, quis nostrud exercitation. 
-                  </p>
-                  <a href="#" title="DOWNLOAD now" class="btn -btn-2">DOWNLOAD now</a>
+                  <h3 class="grid-title">
+                    Contact Us
+                  </h3>
+                  <p class="highlight">we’re here for you, and we’re wearing our thinking caps.</p>
+                  <form action="" class="contact-form">
+                    <span>
+                      <input type="text" placeholder="Name" />
+                    </span>
+                    <span>
+                      <input type="email" placeholder="E-mail" />
+                    </span>
+                    <span>
+                      <input type="text" placeholder="Topic" />
+                    </span>
+                    <span>
+                      <textarea name="" id="" placeholder="Message"></textarea>
+                    </span>
+                    <span>
+                      <input type="submit" class="btn -btn-2" />
+                    </span>
+                  </form>
                 </div>
               </div>
             </div>
-            <div class="rectangle-area">
-              <div class="rectangle"><!-- --></div>
-            </div>
-          </section>
+          </section>          
         </div>
       </main>
       <footer class="footer">
@@ -186,8 +195,8 @@
               <li><a title="Benefits" href="#benefits">Benefits</a></li>
               <li><a title="FAQ" href="#faq">FAQ</a></li>
               <li><a title="Payouts" href="#">Payouts</a></li>
-              <li><a title="White Paper" href="whitepaper.html">White Paper</a></li>
-              <li><a title="Contact Us" href="contactus.html">Contact Us</a></li>
+              <li><a title="White Paper" href="whitepaper.html#whitepaper">White Paper</a></li>
+              <li><a title="Contact Us" href="contactus.html#contactus">Contact Us</a></li>
             </ul>
           </nav>
           <h6>Folow Us in</h6>

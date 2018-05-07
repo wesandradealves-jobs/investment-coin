@@ -39,8 +39,10 @@ $(document).ready(function () {
             });
         });
     } else {
-        $( '.navigation ul li a' ).each(function() {
-            $(this).attr("href", "index.html" + '#' + $(this).attr('href').split('#').pop())
+        $( '.navigation ul li a' ).each(function(e) {
+            if (/#/.test(this.href)) {
+                $(this).attr("href", "index.html" + '#' + $(this).attr('href').split('#').pop())
+            }
         });
     }
     if(location.hash){
@@ -50,7 +52,7 @@ $(document).ready(function () {
                     $(this).parent().addClass('-active');
                 }
             });
-            $('html, body').animate({scrollTop: $(location.hash).offset().top}, 500); 
+            $('html, body').animate({scrollTop: $(location.hash).offset().top + $(".header").outerHeight()}, 500); 
         });
     }
 });  
