@@ -1,6 +1,3 @@
 <div class="newsletter">
-    <form action="">
-        <input type="text" placeholder="E-mail" required />
-        <input class="btn -btn-1" type="submit" value="Signup" />
-    </form>
+    <?php echo do_shortcode('[contact-form-7 id="175" title="Newsletter"]'); ?>
 </div>

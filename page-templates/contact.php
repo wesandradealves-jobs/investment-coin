@@ -5,27 +5,15 @@
     <div class="container">
         <div class="grid">
         <div>
+            <?php if ( have_posts () ) : while (have_posts()) : the_post();  ?>
             <h3 class="grid-title">
-            Contact Us
+            <?php echo get_the_title() ?>
             </h3>
-            <p class="highlight">we’re here for you, and we’re wearing our thinking caps.</p>
-            <form action="" class="contact-form">
-            <span>
-                <input type="text" placeholder="Name" />
-            </span>
-            <span>
-                <input type="email" placeholder="E-mail" />
-            </span>
-            <span>
-                <input type="text" placeholder="Topic" />
-            </span>
-            <span>
-                <textarea name="" id="" placeholder="Message"></textarea>
-            </span>
-            <span>
-                <input type="submit" value="Send Mail" class="btn -btn-2" />
-            </span>
-            </form>
+            <?php if(get_the_excerpt()) : ?>
+                <p class="highlight"><?php echo get_the_excerpt() ?></p>
+            <?php endif; ?>
+            <?php echo do_shortcode('[contact-form-7 id="155" html_class="contact-form" title="Contact form"]'); ?>
+            <?php endwhile; endif; ?>
         </div>
         </div>
     </div>
