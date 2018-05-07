@@ -1,14 +1,10 @@
 $(document).ready(function () {
-    var token = 5600,
+    var token = $("#tokens").val(),
         tokensInput = $("#tokens"),
         eth = $("#eth");
 
-        tokensInput.val(token);
-        
         eth.bind('keyup mouseup', function () {
-            var tokens = $(this).val(),
-                convertedToken = tokens*token;
-            tokensInput.val(convertedToken);
+            tokensInput.val($(this).val()*token);
         });
 }); 
       
