@@ -66,8 +66,10 @@ $(document).ready(function () {
     }); 
     $(window).resize(function() {
         closeMenu();
-        setTimeout(function(){
-            window.location.reload();
-        });
+        if ($(window).width() >= 737) {
+            setTimeout(function(){
+                window.location.reload();
+            });
+        }
     });
 });  
