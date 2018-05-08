@@ -66,7 +66,7 @@ $(document).ready(function () {
     }); 
     $(window).resize(function() {
         closeMenu();
-        if ($(window).width() >= 737) {
+        if ($(window).width() > 737) {
             setTimeout(function(){
                 window.location.reload();
             });
