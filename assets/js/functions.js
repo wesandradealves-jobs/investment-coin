@@ -16,6 +16,8 @@ function closeMenu(){
 
 $(document).ready(function () {
     $(".token-sale-steps > li.-active").prevAll().addClass("-active");
+    $(".navigation.-mobile ul").append("<li></li>");
+    $( ".header-footer" ).find(".social-networks").clone().appendTo( ".navigation.-mobile ul li:last-child" )
 }); 
       
       
